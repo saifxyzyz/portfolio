@@ -1,0 +1,53 @@
+.main {
+  height: 100vh;
+  overflow: hidden;
+  
+  background-image: linear-gradient(
+    
+    #11B7EB 0%, 
+    #11B7EB 60%, 
+    
+    /* Second Color: Green, starting immediately at 50% and continuing to 100% */
+    #82C83D 40%, 
+    #82C83D 100%
+  );
+}
+.folder {
+  height: 10vh;
+  width: 10vh;
+  background-image: url(src/folder.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  
+}
+.taskbar {
+  position: absolute;
+  bottom: 0;
+  background-color: grey;
+  height: 40px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+.logoimage {
+  position: absolute;
+  height: 39px;
+  width: auto;
+  margin-right: 20px;
+  bottom: 0;
+}
+.foldercontainer {
+  display: table-footer-group;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.logolabel {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: white;
+}
+.desktop {
+  display:block;
+}
