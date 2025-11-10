@@ -10,31 +10,51 @@
     <div class="desktop">
       <div class="foldercontainer">
         <a href="https://linkedin.com/in/mohammed-saif-a6097b227" class="logo">
-          <img src="src/social.jpg" alt="windows" class="folder">
+          <img src="src/social.jpg" alt="linkedin" class="folder">
         </a>
         <p class="logolabel">LinkedIn</p>
       </div>
       <div class="foldercontainer">
-        <a href="https://github.com/saifxyzyz" class="logo">
-          <img src="src/notepad.jpg" alt="windows" class="folder">
-        </a>
+        <div id="openModalLink" class="logo">
+          <img src="src/notepad.jpg" alt="about me" class="folder">
+          <div class="modalcontainer" id="myModal">
+            <span class="closebutton" id="closebutton">X</span>
+            <h2>Hey There, I am Mohammed Saif</h2>
+            <p>I'm pretty adaptive when it comes to programming languages. I have mastered Python, JavaScript, TypeScript, HTML,
+            CSS and I posses intermediary level expertise in C++ and Java.</p>
+            <p>I'm passionate about machine learning and web development where machine learning is my priority.</p> 
+            <p>I love contributing to innovation driven open source projects that align with my interests, 
+            as well as participating in competitive Hackathons.</p>
+            <p>A few frameworks that I have worked with are Next.js, React.js, Flask, Django, React Native and a few more that I can not recall as of now</p>
+            <p>I have also worked on automation of inventory management and report generation, in which I used a python script,
+             along with modules like MIME Multipart, IMAP and SMTP to streamline to automate tasks</p>
+            
+          </div>
+        </div>
         <p class="logolabel">About Me</p>
       </div>
-
-
       <div class="foldercontainer">
-        <a href="https://github.com/saifxyzyz" class="logo">
-          <img src="src/computer2.jpg" alt="windows" class="folder">
-        </a>
-        <p class="logolabel">GitHub</p>
-      </div>
-      <div class="foldercontainer">
-        <a href="https://github.com/saifxyzyz" class="logo">
-          <img src="src/contact.jpg" alt="windows" class="folder">
-        </a>
+        <div id="openModalLink" class="logo">
+          <img src="src/contact.jpg" alt="contact" class="folder">
+          <div class="modalcontainer" id="myModal">
+            <span class="closebutton">X</span>
+            <h2>Lets Connect!</h2>
+            <p>Email Adress: saifmujeeb2603@gmail.com</p>
+            <p>Phone Number: +917075103874</p>
+          </div>
+        </div>
+
         <p class="logolabel">Contact</p>
       </div>
 
+
+      <div class="foldercontainer">
+        <a href="https://github.com/saifxyzyz" class="logo">
+          <img src="src/computer2.jpg" alt="github" class="folder">
+        </a>
+        <p class="logolabel">GitHub</p>
+      </div>
+      
     </div>
     <div class="taskbar">
       <a href="/" class="logo">
@@ -42,6 +62,7 @@
       </a>
 
     </div>
+    <script src="index.js"></script>
   
   </body>
 </html>

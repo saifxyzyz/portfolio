@@ -42,6 +42,7 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  cursor: pointer;
 }
 .logolabel {
   margin: 0 0 10px 0;
@@ -50,4 +51,57 @@
 }
 .desktop {
   display:block;
+}
+.modalcontainer {
+  padding: 10px;
+  text-align: left;
+  background-color: silver;
+  height: 70vh;
+  width: 70vh;
+  position: fixed;
+  color: black;
+  right: 50%;
+  overflow-y: auto;
+  scrollbar-color: #C0C0C0 #FFFFFF ; /* Firefox styling */
+  scrollbar-width: thick;
+  display: none;
+
+}
+.modalcontainer.active{
+  display: block;
+}
+.modalcontainer2 {
+  padding: 10px;
+  text-align: left;
+  background-color: silver;
+  height: auto;
+  width: 70vh;
+  position: fixed;
+  color: black;
+  right: 10%;
+  top: 30%;
+  overflow-y: auto;
+  scrollbar-color: #C0C0C0 #FFFFFF ; /* Firefox styling */
+  scrollbar-width: thick;
+
+}
+.closebutton {
+  position: absolute;
+  top: 4px; /* Position relative to the window container */
+  right: 4px;
+  width: 16px;
+  height: 14px;
+  background-color: #C0C0C0;
+  color: #000000;
+  text-align: center;
+  line-height: 12px;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  padding: 1px;
+  cursor: pointer;
+  
+  /* Sunken 3D Effect for the button */
+  border-style: solid;
+  border-width: 1px;
+  border-color: #808080 #FFFFFF #FFFFFF #808080;
 }
