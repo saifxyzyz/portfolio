@@ -15,7 +15,6 @@
 .folder {
   height: 10vh;
   width: 10vh;
-  background-image: url(src/folder.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
   
@@ -29,6 +28,25 @@
   right: 0;
   display: flex;
   align-items: center;
+}
+.taskbar .start-button {
+    /* Ensure the logo is still positioned correctly */
+    cursor: pointer;
+    /* Add any visual click feedback here */
+}
+.start-menu-popup {
+    /* Position the menu absolutely relative to the viewport */
+    position: absolute;
+    bottom: 50px; /* Adjust this to sit right above the taskbar */
+    left: 0;
+    
+    /* Classic Windows look */
+    width: 250px;
+    background-color: #C0C0C0; /* Classic Windows gray */
+    border: 3px outset #FFFFFF; /* Create the 3D button effect */
+    padding: 5px;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.4);
+    z-index: 1000; /* Ensure it is on top of everything */
 }
 .logoimage {
   position: absolute;
@@ -50,46 +68,61 @@
   color: white;
 }
 .desktop {
-  display:inline-grid;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
 }
-
+.column-1 {
+  display: grid;
+}
 .modalcontainer {
-  padding: 10px;
+  top: 15%;
   text-align: left;
   background-color: silver;
-  height: 50vh;
-  width: 50vh;
+  height: auto;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
   position: fixed;
   color: black;
-  right: 50%;
   overflow-y: auto;
   scrollbar-color: #C0C0C0 #FFFFFF ; /* Firefox styling */
   scrollbar-width: thick;
   display: none;
   cursor: default;
+  border: inset;
 
+}
+.modalcontainer p {
+  padding-left: 5px;
+}
+.modalcontainer h2 {
+  padding-left: 5px;
 }
 .modalcontainer.active{
   display: block;
 }
 .modalcontainer2 {
-  padding: 10px;
   text-align: left;
   background-color: silver;
   height: auto;
-  width: 70vh;
+  width:inherit;
   position: fixed;
   color: black;
-  right: 10%;
-  top: 30%;
+  top: 50%;
   overflow-y: auto;
   scrollbar-color: #C0C0C0 #FFFFFF ; /* Firefox styling */
   scrollbar-width: thick;
   display: none;
-
+  border: inset;
 }
 .modalcontainer2.active {
   display: block;
+}
+.modalcontainer2 p {
+  padding-left: 5px;
+}
+.modalcontainer2 h2 {
+  padding-left: 5px;
 }
 .closebutton {
   position: absolute;
@@ -110,4 +143,15 @@
   border-style: solid;
   border-width: 1px;
   border-color: #808080 #FFFFFF #FFFFFF #808080;
+}
+.closecontainer {
+  padding: 0.5%;
+  background-color: darkblue;
+  display: list-item;
+  
+}
+.datetime {
+  position: fixed;
+  right: 10px;
+  color: black;
 }

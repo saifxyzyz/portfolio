@@ -5,6 +5,19 @@ document.addEventListener('DOMContentLoaded', function() {
   var link2 = document.getElementById("openModalLink2")
   var closeBtn1 = document.getElementById("closebutton1")
   var closeBtn2 = document.getElementById("closebutton2")
+  const startButton = document.getElementById("startMenuToggle")
+  const startMenu = document.getElementById("startMenu")
+  startButton.addEventListener('click', (event) => {
+        // Stop event from propagating (if needed)
+        event.stopPropagation();
+        
+        // Toggle display
+        if (startMenu.style.display === 'none' || startMenu.style.display === '') {
+            startMenu.style.display = 'block';
+        } else {
+            startMenu.style.display = 'none';
+        }
+  });
   if (link1){
     link1.onclick = function(event) {
       event.preventDefault()

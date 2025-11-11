@@ -8,59 +8,98 @@
   </head>
   <body class="main">
     <div class="desktop">
-      <div class="foldercontainer">
-        <a href="https://linkedin.com/in/mohammed-saif-a6097b227" class="logo">
-          <img src="src/social.jpg" alt="linkedin" class="folder">
-        </a>
-        <p class="logolabel">LinkedIn</p>
-      </div>
-      <div class="foldercontainer">
-        <div id="openModalLink1" class="logo">
-          <img src="src/notepad.jpg" alt="about me" class="folder">
+      <div class="column-1">
+        <div class="foldercontainer">
+          <a href="https://github.com/saifxyzyz" class="logo">
+            <img src="src/computer2.jpg" alt="github" class="folder">
+          </a>
+          <p class="logolabel">GitHub</p>
         </div>
-        <p class="logolabel">About Me</p>
-      </div>
-      <div class="modalcontainer" id="modal-1">
-        <span class="closebutton" id="closebutton1">X</span>
-        <h2>Hey There, I am Mohammed Saif</h2>
-        <p>I'm pretty adaptive when it comes to programming languages. I have mastered Python, JavaScript, TypeScript, HTML,
-          CSS and I posses intermediary level expertise in C++ and Java.</p>
-        <p>I'm passionate about machine learning and web development where machine learning is my priority.</p> 
-        <p>I love contributing to innovation driven open source projects that align with my interests, 
-          as well as participating in competitive Hackathons.</p>
-        <p>A few frameworks that I have worked with are Next.js, React.js, Flask, Django, React Native and a few more that I can not recall as of now</p>
-        <p>I have also worked on automation of inventory management and report generation, in which I used a python script,
-          along with modules like MIME Multipart, IMAP and SMTP to streamline to automate tasks</p>
-
-      </div>
-      <div class="foldercontainer">
-        <div id="openModalLink2" class="logo">
-          <img src="src/contact.jpg" alt="contact" class="folder">
+        <div class="foldercontainer">
+          <a href="https://linkedin.com/in/mohammed-saif-a6097b227" class="logo">
+            <img src="src/social.jpg" alt="linkedin" class="folder">
+          </a>
+          <p class="logolabel">LinkedIn</p>
         </div>
 
-        <p class="logolabel">Contact</p>
-      </div>
-      <div class="modalcontainer2" id="modal-2">
-        <span class="closebutton" id="closebutton2">X</span>
-        <h2>Lets Connect!</h2>
-        <p>Email Address: saifmujeeb2603@gmail.com</p>
-        <p>Phone Number: +917075103874</p>
+          <div class="foldercontainer">
+          <div id="openModalLink1" class="logo">
+            <img src="src/notepad.jpg" alt="about me" class="folder">
+          </div>
+          <p class="logolabel">About Me</p>
+        </div>
+        <div class="modalcontainer" id="modal-1">
+          <div class="closecontainer">
+            <span class="closebutton" id="closebutton1">X</span>
+          </div>
+          <h2>Hey There, I am Mohammed Saif</h2>
+          <p>I'm pretty adaptive when it comes to programming languages. I have mastered Python, JavaScript, TypeScript, HTML,
+            CSS and I posses intermediary level expertise in C++ and Java.</p>
+          <p>I'm passionate about machine learning and web development where machine learning is my priority.</p> 
+          <p>I love contributing to innovation driven open source projects that align with my interests, 
+            as well as participating in competitive Hackathons.</p>
+          <p>A few frameworks that I have worked with are Next.js, React.js, Flask, Django, React Native and a few more that I can not recall as of now</p>
+          <p>I have also worked on automation of inventory management and report generation, in which I used a python script,
+            along with modules like MIME Multipart, IMAP and SMTP to streamline to automate tasks</p>
+
+        </div>
+        <div class="foldercontainer">
+          <div id="openModalLink2" class="logo">
+            <img src="src/contact.jpg" alt="contact" class="folder">
+          </div>
+
+          <p class="logolabel">Contact</p>
+        </div>
+        <div class="modalcontainer2" id="modal-2">
+          <div class="closecontainer">
+            <span class="closebutton" id="closebutton2">X</span>
+          </div>
+          <h2>Lets Connect!</h2>
+          <p>Email Address: saifmujeeb2603@gmail.com</p>
+          <p>Phone Number: +917075103874</p>
+        </div>
+        <div class="foldercontainer">
+          <img src="src/folder.png" class="folder" style="height: 8vh; width: auto;"></img>
+          <p class="logolabel">Projects</p>
+        </div>
+        
       </div>
 
-      <div class="foldercontainer">
-        <a href="https://github.com/saifxyzyz" class="logo">
-          <img src="src/computer2.jpg" alt="github" class="folder">
-        </a>
-        <p class="logolabel">GitHub</p>
-      </div>
-      <div class="foldercontainer"></div>
       
     </div>
     <div class="taskbar">
-      <a href="/" class="logo">
+      <div class="logo start-button" id="startMenuToggle">
         <img src="src/windows.jpeg" alt="windows" class="logoimage">
-      </a>
+      </div>
+      <div class="start-menu-popup" id="startMenu" style="display: none;">
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=saifxyzyz&layout=compact&theme=highcontrast&hide_border=true&langs_count=8&hide=C%2B%2B"
+          alt="top languages"
+          class="github-stats"
+          style="width: 100%; height: auto;">
+      </div>
+      <p id="currentDate" class="datetime"></p>
+      <script class="datatime">
+        const today = new Date();
 
+        const timeOptions = { 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            hour12: false // Set to false for 24-hour time (00-23). Use true for AM/PM format.
+        };
+
+        const dateOptions = { 
+            year: 'numeric', 
+            month: '2-digit', // Ensures MM format (e.g., 11)
+            day: '2-digit'    // Ensures DD format (e.g., 11)
+        };
+        
+        const locale = 'en-US'; 
+        const timePart = today.toLocaleTimeString(locale, timeOptions); 
+        const datePart = today.toLocaleDateString(locale, dateOptions);
+        const formattedDateTime = `${timePart.slice(0, 5)} ${datePart}`;
+        
+        document.getElementById('currentDate').textContent = formattedDateTime;
+    </script>
     </div>
     <script src="index.js"></script>
   
