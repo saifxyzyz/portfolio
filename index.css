@@ -50,14 +50,15 @@
   color: white;
 }
 .desktop {
-  display:block;
+  display:inline-grid;
 }
+
 .modalcontainer {
   padding: 10px;
   text-align: left;
   background-color: silver;
-  height: 70vh;
-  width: 70vh;
+  height: 50vh;
+  width: 50vh;
   position: fixed;
   color: black;
   right: 50%;
@@ -65,6 +66,7 @@
   scrollbar-color: #C0C0C0 #FFFFFF ; /* Firefox styling */
   scrollbar-width: thick;
   display: none;
+  cursor: default;
 
 }
 .modalcontainer.active{
@@ -83,7 +85,11 @@
   overflow-y: auto;
   scrollbar-color: #C0C0C0 #FFFFFF ; /* Firefox styling */
   scrollbar-width: thick;
+  display: none;
 
+}
+.modalcontainer2.active {
+  display: block;
 }
 .closebutton {
   position: absolute;
