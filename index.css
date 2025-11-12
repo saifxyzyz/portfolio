@@ -11,6 +11,7 @@
     #82C83D 40%, 
     #82C83D 100%
   );
+  font-family:"MS Sans Serif", "Microsoft Sans Serif", "Tahoma", "Geneva", "Verdana", sans-serif;
 }
 .folder {
   height: 10vh;
@@ -37,11 +38,11 @@
 .start-menu-popup {
     /* Position the menu absolutely relative to the viewport */
     position: absolute;
-    bottom: 50px; /* Adjust this to sit right above the taskbar */
+    bottom: 43px; /* Adjust this to sit right above the taskbar */
     left: 0;
     
     /* Classic Windows look */
-    width: 250px;
+    width: 30%;
     background-color: #C0C0C0; /* Classic Windows gray */
     border: 3px outset #FFFFFF; /* Create the 3D button effect */
     padding: 5px;
@@ -76,6 +77,7 @@
 }
 .modalcontainer {
   top: 15%;
+  left: 40%;
   text-align: left;
   background-color: silver;
   height: auto;
@@ -92,6 +94,7 @@
   border: inset;
 
 }
+
 .modalcontainer p {
   padding-left: 5px;
 }
@@ -109,6 +112,7 @@
   position: fixed;
   color: black;
   top: 50%;
+  left: 25%;
   overflow-y: auto;
   scrollbar-color: #C0C0C0 #FFFFFF ; /* Firefox styling */
   scrollbar-width: thick;
@@ -119,10 +123,10 @@
   display: block;
 }
 .modalcontainer2 p {
-  padding-left: 5px;
+  padding: 8px;
 }
 .modalcontainer2 h2 {
-  padding-left: 5px;
+  padding: 8px;
 }
 .closebutton {
   position: absolute;
@@ -154,4 +158,139 @@
   position: fixed;
   right: 10px;
   color: black;
+}
+.win95-content {
+  padding: 15px;
+  background: #c0c0c0;
+}
+
+.win95-fieldset {
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  padding: 15px;
+  background: #ffffff;
+}
+
+.win95-legend {
+  font-size: 11px;
+  font-weight: bold;
+  color: #000080;
+  margin-bottom: 10px;
+}
+
+.win95-lang {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 11px;
+}
+
+.win95-label {
+  width: 100px;
+  font-weight: bold;
+}
+
+.win95-progress {
+  flex: 1;
+  height: 18px;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  background: #ffffff;
+  margin: 0 10px;
+}
+
+.win95-bar {
+  height: 100%;
+  background: linear-gradient(to bottom, #000080, #1084d0, #000080);
+}
+
+.win95-percent {
+  width: 50px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.win95-button-group {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.win95-button {
+  padding: 4px 20px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #000000 #000000 #ffffff;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  min-width: 75px;
+}
+
+.win95-status {
+  background: #c0c0c0;
+  border-top: 2px solid;
+  border-color: #ffffff #000000 #000000 #ffffff;
+  padding: 3px 4px;
+  font-size: 11px;
+  display: flex;
+  gap: 10px;
+}
+
+.win95-status-item {
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  padding: 2px 6px;
+}
+.projects {
+  display:none;
+
+  top: 10%;
+  left: 20%;
+  text-align: left;
+  background-color: silver;
+  height: auto;
+  max-width: 600px;
+  width:unset;
+  max-height: 90vh;
+  position: fixed;
+  color: black;
+  overflow-y: auto;
+  scrollbar-color: #C0C0C0 #FFFFFF ; /* Firefox styling */
+  scrollbar-width: thick;
+  border: inset;
+
+}
+.folderitem {
+  text-align: center;
+  margin: 10px;
+}
+.projects p {
+  font-size: 13px;
+  color: black;
+  text-underline-offset: none;
+  margin: 5px;
+  margin-top:0px ;
+}
+.projectsmain {
+  display: flex;
+}
+.projects.active {
+  display: block;
+}
+@media (max-width: 600px) {
+  .modalcontainer{
+    top: 12%;
+    left: 2%;
+  }
+  .modalcontainer2{
+    left: 2%;
+  }
+  .projectsmain{
+    display: contents;
+  }
+  .start-menu-popup{
+    width: 90%;
+  }
 }

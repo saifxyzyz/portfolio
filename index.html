@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Saif's Portfolio</title>
     <link href="index.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="src/favicon.png">
   </head>
   <body class="main">
     <div class="desktop">
@@ -55,12 +56,53 @@
             <span class="closebutton" id="closebutton2">X</span>
           </div>
           <h2>Lets Connect!</h2>
-          <p>Email Address: saifmujeeb2603@gmail.com</p>
+          <!-- <a href="mailto:saifmujeeb2603@gmail.com"> -->
+          <p>Email Address: <a href="mailto:saifmujeeb2603@gmail.com">saifmujeeb2603@gmail.com</a></p>
+          <!-- </a> -->
           <p>Phone Number: +917075103874</p>
         </div>
-        <div class="foldercontainer">
+        <div class="foldercontainer" id="openModalLink3">
           <img src="src/folder.png" class="folder" style="height: 8vh; width: auto;"></img>
           <p class="logolabel">Projects</p>
+        </div>
+        <div class="projects" id="modal-3">
+          <div class="closecontainer">
+            <span class="closebutton" id="closebutton3">X</span>
+          </div>
+          <div class="projectsmain">
+            <a href="https://github.com/saifxyzyz/WordSmith">
+              <div class="folderitem">
+                <img src="src/scriptnbg.png" class="project">
+                <p>WordSmith</p>
+              </div>
+            </a>
+            <a href="https://github.com/saifxyzyz/Self-Help-RAG">
+              <div class="folderitem">
+                <img src="src/scriptnbg.png" class="project">
+                <p>SelfHelp-RAG</p>
+              </div>
+            </a>
+            <a href="https://github.com/Mohammed-Shoaib01/EventElevate">
+              <div class="folderitem">
+                <img src="src/scriptnbg.png" class="project">
+                <p>EventElevate</p>
+              </div>
+            </a>
+            <a href="https://github.com/saifxyzyz/jobhut">
+              <div class="folderitem">
+                <img src="src/scriptnbg.png" class="project">
+                <p>JobHut</p>
+              </div>
+            </a>
+            <a href="https://github.com/esscs/eyeconcept">
+              <div class="folderitem">
+                <img src="src/scriptnbg.png" class="project">
+                <p>EyeConcept</p>
+              </div>
+            </a>
+
+          </div>
+
         </div>
         
       </div>
@@ -72,10 +114,51 @@
         <img src="src/windows.jpeg" alt="windows" class="logoimage">
       </div>
       <div class="start-menu-popup" id="startMenu" style="display: none;">
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=saifxyzyz&layout=compact&theme=highcontrast&hide_border=true&langs_count=8&hide=C%2B%2B"
-          alt="top languages"
-          class="github-stats"
-          style="width: 100%; height: auto;">
+        <div class="win95-content">
+          <div class="win95-fieldset">
+            <div class="win95-legend">Most Used Languages</div>
+            
+            <div class="win95-lang">
+              <span class="win95-label">Python:</span>
+              <div class="win95-progress">
+                <div class="win95-bar" style="width: 77%;"></div>
+              </div>
+              <span class="win95-percent">67.6%</span>
+            </div>
+
+            <div class="win95-lang">
+              <span class="win95-label">JavaScript:</span>
+              <div class="win95-progress">
+                <div class="win95-bar" style="width: 15.4%;"></div>
+              </div>
+              <span class="win95-percent">15.4%</span>
+            </div>
+
+            <div class="win95-lang">
+              <span class="win95-label">TypeScript:</span>
+              <div class="win95-progress">
+                <div class="win95-bar" style="width: 15%;"></div>
+              </div>
+              <span class="win95-percent">11.7%</span>
+            </div>
+
+            <div class="win95-lang">
+              <span class="win95-label">HTML:</span>
+              <div class="win95-progress">
+                <div class="win95-bar" style="width: 6%;"></div>
+              </div>
+              <span class="win95-percent">6.1%</span>
+            </div>
+
+            <div class="win95-lang">
+              <span class="win95-label">CSS:</span>
+              <div class="win95-progress">
+                <div class="win95-bar" style="width: 4%;"></div>
+              </div>
+              <span class="win95-percent">4.7%</span>
+            </div>
+          </div>
+        </div>
       </div>
       <p id="currentDate" class="datetime"></p>
       <script class="datatime">
@@ -99,7 +182,7 @@
         const formattedDateTime = `${timePart.slice(0, 5)} ${datePart}`;
         
         document.getElementById('currentDate').textContent = formattedDateTime;
-    </script>
+      </script>
     </div>
     <script src="index.js"></script>
   
