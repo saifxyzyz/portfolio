@@ -92,6 +92,7 @@
   display: none;
   cursor: default;
   border: inset;
+  z-index: 10;
 
 }
 
@@ -279,8 +280,51 @@
 .projects.active {
   display: block;
 }
+.merge {
+  display: flex;
+  height: 20px;
+}
+.contributionsmain {
+  display: inline;
+}
+.contributionitem {
+  display: flex;
+  width:max-content;
+  margin: 5px;
+}
+.contributions {
+  display:none;
+  max-width: fit-content;
+  top: 20%;
+  left: 20%;
+  text-align: left;
+  background-color: silver;
+  height: auto;
+  width:unset;
+  max-height: 90vh;
+  position: fixed;
+  color: black;
+  overflow-y: auto;
+  scrollbar-color: #C0C0C0 #FFFFFF ; /* Firefox styling */
+  scrollbar-width: thick;
+  border: inset;
+
+}
+.contributions.active {
+  display: block;
+}
+.contributions p {
+  font-size: 13px;
+  color: black;
+  margin: 5px;
+  margin-top:0px ;
+}
+.no-underline{
+  text-decoration: none;
+}
 @media (max-width: 600px) {
   .modalcontainer{
+    z-index: 999;
     top: 12%;
     left: 2%;
   }
@@ -293,4 +337,8 @@
   .start-menu-popup{
     width: 90%;
   }
+  .contributions {
+    width: -webkit-fill-available;
+  }
 }
+

@@ -7,10 +7,13 @@ document.addEventListener('DOMContentLoaded', function() {
   var closeBtn2 = document.getElementById("closebutton2")
   const startButton = document.getElementById("startMenuToggle")
   const startMenu = document.getElementById("startMenu")
-
   var modal3 = document.getElementById("modal-3");
   var link3 = document.getElementById("openModalLink3")
   var closeBtn3 = document.getElementById("closebutton3")
+  var modal4 = document.getElementById("modal-4");
+  var link4 = document.getElementById("openModalLink4")
+  var closeBtn4 = document.getElementById("closebutton4")
+
   startButton.addEventListener('click', (event) => {
         // Stop event from propagating (if needed)
         event.stopPropagation();
@@ -55,4 +58,16 @@ document.addEventListener('DOMContentLoaded', function() {
       modal3.classList.remove('active')
     }
   }
+  if (link4){
+    link4.onclick = function(event) {
+      event.preventDefault()
+      modal4.classList.add('active')
+    }
+  }
+  if (closeBtn4) {
+    closeBtn4.onclick = function() {
+      modal4.classList.remove('active')
+    }
+  }
+
 })
