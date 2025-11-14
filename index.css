@@ -296,7 +296,8 @@
   display:none;
   max-width: fit-content;
   top: 20%;
-  left: 20%;
+  left: 5%;
+  overflow: clip;
   text-align: left;
   background-color: silver;
   height: auto;
