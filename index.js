@@ -13,7 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
   var modal4 = document.getElementById("modal-4");
   var link4 = document.getElementById("openModalLink4")
   var closeBtn4 = document.getElementById("closebutton4")
-
+  let topZIndex = 100;
+  function elevateModal(modalElement) {
+    // 1. Increment the counter
+    topZIndex += 1; 
+    
+    // 2. Apply the new highest z-index to the modal
+    modalElement.style.zIndex = topZIndex;
+  }
   startButton.addEventListener('click', (event) => {
         // Stop event from propagating (if needed)
         event.stopPropagation();
@@ -28,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (link1){
     link1.onclick = function(event) {
       event.preventDefault()
+      elevateModal(modal1)
       modal1.classList.add('active')
     }
   }
@@ -39,9 +47,11 @@ document.addEventListener('DOMContentLoaded', function() {
   if (link2){
     link2.onclick = function(event) {
       event.preventDefault()
+      elevateModal(modal2)
       modal2.classList.add('active')
+    }
   }
-  }
+  
   if (closeBtn2) {
     closeBtn2.onclick = function() {
       modal2.classList.remove('active')
@@ -50,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (link3){
     link3.onclick = function(event) {
       event.preventDefault()
+      elevateModal(modal3)
       modal3.classList.add('active')
     }
   }
@@ -61,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (link4){
     link4.onclick = function(event) {
       event.preventDefault()
+      elevateModal(modal4)
       modal4.classList.add('active')
     }
   }
@@ -68,6 +80,26 @@ document.addEventListener('DOMContentLoaded', function() {
     closeBtn4.onclick = function() {
       modal4.classList.remove('active')
     }
+  }
+  if (modal1) {
+      modal1.onclick = function(event) {
+        elevateModal(modal1)
+      }
+  }
+  if (modal2) {
+      modal2.onclick = function(event) {
+        elevateModal(modal2)
+      }
+  }
+  if (modal3) {
+      modal3.onclick = function(event) {
+        elevateModal(modal3)
+      }
+  }
+  if (modal4) {
+      modal4.onclick = function(event) {
+        elevateModal(modal4)
+      }
   }
 
 })

@@ -156,6 +156,9 @@
   
 }
 .datetime {
+  padding: 5px;
+  border: inset;
+  border-radius: 2px;
   position: fixed;
   right: 10px;
   color: black;
@@ -264,8 +267,13 @@
 
 }
 .folderitem {
+  padding: 2px;
   text-align: center;
   margin: 10px;
+}
+.folderitem:hover {
+
+  background-color: lightsteelblue;
 }
 .projects p {
   font-size: 13px;
@@ -289,8 +297,12 @@
 }
 .contributionitem {
   display: flex;
-  width:max-content;
+  width:670px;
   margin: 5px;
+}
+.contributionitem:hover {
+  background-color: lightsteelblue;
+  border-radius: 2px;
 }
 .contributions {
   display:none;
@@ -314,6 +326,7 @@
 .contributions.active {
   display: block;
 }
+
 .contributions p {
   font-size: 13px;
   color: black;
