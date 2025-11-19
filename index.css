@@ -76,9 +76,8 @@
   display: grid;
 }
 .modalcontainer {
-  top: 15%;
-  left: 40%;
-  text-align: left;
+  top:  5%;
+  left: 10%;   text-align: left;
   background-color: silver;
   height: auto;
   max-width: 600px;
@@ -112,8 +111,9 @@
   width:inherit;
   position: fixed;
   color: black;
-  top: 50%;
-  left: 25%;
+  top: 30%;
+  right: 52%;
+ 
   overflow-y: auto;
   scrollbar-color: #C0C0C0 #FFFFFF ; /* Firefox styling */
   scrollbar-width: thick;
@@ -250,8 +250,8 @@
 .projects {
   display:none;
 
-  top: 10%;
-  left: 20%;
+  top: 45%;
+  right: 37%;
   text-align: left;
   background-color: silver;
   height: auto;
@@ -307,8 +307,8 @@
 .contributions {
   display:none;
   max-width: fit-content;
-  top: 20%;
-  left: 5%;
+  top: 55%;
+  right: 25%;
   overflow: clip;
   text-align: left;
   background-color: silver;
@@ -343,7 +343,17 @@
     left: 2%;
   }
   .modalcontainer2{
-    left: 2%;
+    left: 4%;
+    width: fit-content;
+  }
+  .projects {
+    left: 30%;
+    top: 10%;
+  }
+  .contributions {
+    right: 4%;
+    width: 70%;
+    left: 4%;
   }
   .projectsmain{
     display: contents;
