@@ -42,7 +42,7 @@
     left: 0;
     
     /* Classic Windows look */
-    width: 30%;
+    width: 40%;
     background-color: #C0C0C0; /* Classic Windows gray */
     border: 3px outset #FFFFFF; /* Create the 3D button effect */
     padding: 5px;
@@ -348,7 +348,7 @@
   }
   .projects {
     left: 30%;
-    top: 10%;
+    top: 0%;
   }
   .contributions {
     right: 4%;
@@ -359,10 +359,14 @@
     display: contents;
   }
   .start-menu-popup{
-    width: 90%;
+    width: 94%;
   }
   .contributions {
     width: -webkit-fill-available;
+  }
+  .folder {
+    height: 9vh;
+    width: auto;
   }
 }
 
