@@ -251,11 +251,10 @@
   display:none;
 
   top: 45%;
-  right: 37%;
+  right: 22%;
   text-align: left;
   background-color: silver;
   height: auto;
-  max-width: 600px;
   width:unset;
   max-height: 90vh;
   position: fixed;
@@ -367,6 +366,9 @@
   .folder {
     height: 9vh;
     width: auto;
+  }
+  .folderitem {
+    height: 9.5vh;
   }
 }
 
