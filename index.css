@@ -75,6 +75,9 @@
 .column-1 {
   display: grid;
 }
+.column-2 {
+  display: grid;
+}
 .modalcontainer {
   top:  5%;
   left: 10%;   text-align: left;
@@ -306,7 +309,7 @@
 .contributions {
   display:none;
   max-width: fit-content;
-  top: 55%;
+  top: 40%;
   right: 25%;
   overflow: clip;
   text-align: left;
