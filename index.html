@@ -211,7 +211,31 @@
         </a>
         <p class="logolabel">Resume</p>
       </div>
+      <div class="foldercontainer" >
+        <div class="logo" id="openModalLink5">
+          <img src="src/dice.png" alt="AITP" class="folder">
+        </div>
+        <p class="logolabel">AITP?</p>
+      </div>
 
+      <div class="aita-container" id="modal-5">
+          <div class="closecontainer">
+            <span class="closebutton" id="closebutton5">X</span>
+          </div>
+
+          <h3>Am I The Problem? Let a Machine Learning model judge you</h3>
+          <p><a href="https://github.com/saifxyzyz/AITP" target="_blank">Source Code</a></p>
+          <textarea id="storyInput" placeholder="Type your story here... (e.g. I ate my roomates food because...)"></textarea>
+          
+          <br>
+          <button id="judgeBtn"  onclick="getVerdict()">Get Verdict</button>
+
+          <div id="resultBox" style="display:none; margin-top: 15px; padding: 10px; border-radius: 5px;">
+              <span id="verdictText"></span>
+              <br>
+              <small id="confidenceText"></small>
+          </div>
+      </div>
 
     </div>
 
@@ -301,6 +325,71 @@
       </script>
     </div>
     <script src="index.js"></script>
-  
+    <script>
+        async function getVerdict() {
+            // 1. Setup variables
+            const inputField = document.getElementById("storyInput");
+            const resultBox = document.getElementById("resultBox");
+            const verdictText = document.getElementById("verdictText");
+            const confidenceText = document.getElementById("confidenceText");
+            const btn = document.getElementById("judgeBtn");
+            
+            const story = inputField.value.trim();
+
+
+
+            btn.innerText = "Judging...";
+            btn.disabled = true;
+            resultBox.style.display = "none";
+
+            try {
+                const API_URL = "https://saif0z-aita.hf.space/predict"; 
+
+                const response = await fetch(API_URL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ text: story })
+                });
+
+                if (!response.ok) {
+                    throw new Error("Server Error: " + response.status);
+                }
+
+                const data = await response.json();
+
+                resultBox.style.display = "block";
+                if (story.length < 10) {
+                    resultBox.style.backgroundColor = "#ffe6e6";
+                    resultBox.style.border = "1px solid #ffcccc";
+                    verdictText.innerHTML = "<strong>Please write a longer story!</strong>";
+                    verdictText.style.color = "#cc0000";
+                    return;
+                }              
+                if (data.yta_score > 0.40) {
+                    resultBox.style.backgroundColor = "#ffe6e6"; // Light red background
+                    resultBox.style.border = "1px solid #ffcccc";
+                    verdictText.innerHTML = "<strong>YTP (You're The Problem)</strong>";
+                    verdictText.style.color = "#cc0000";
+                } else {
+                    resultBox.style.backgroundColor = "#e6fffa"; 
+                    resultBox.style.border = "1px solid #ccffeb";
+                    verdictText.innerHTML = "<strong>NTP (You're Not The Problem)</strong>";
+                    verdictText.style.color = "#006600";
+                }
+
+                const confidence = (data.yta_score > 0.5 ? data.yta_score : (1 - data.yta_score)) * 100;
+                confidenceText.innerText = "Confidence: " + confidence.toFixed(1) + "%";
+
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Could not reach the Hugging face space");
+            } finally {
+                btn.innerText = "Get Verdict";
+                btn.disabled = false;
+            }
+        }
+    </script> 
   </body>
 </html>

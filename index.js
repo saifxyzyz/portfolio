@@ -13,19 +13,19 @@ document.addEventListener('DOMContentLoaded', function() {
   var modal4 = document.getElementById("modal-4");
   var link4 = document.getElementById("openModalLink4")
   var closeBtn4 = document.getElementById("closebutton4")
+  var modal5 = document.getElementById("modal-5");
+  var link5 = document.getElementById("openModalLink5")
+  var closeBtn5 = document.getElementById("closebutton5")
+
   let topZIndex = 100;
   function elevateModal(modalElement) {
-    // 1. Increment the counter
     topZIndex += 1; 
     
-    // 2. Apply the new highest z-index to the modal
     modalElement.style.zIndex = topZIndex;
   }
   startButton.addEventListener('click', (event) => {
-        // Stop event from propagating (if needed)
         event.stopPropagation();
         
-        // Toggle display
         if (startMenu.style.display === 'none' || startMenu.style.display === '') {
             startMenu.style.display = 'block';
         } else {
@@ -81,6 +81,18 @@ document.addEventListener('DOMContentLoaded', function() {
       modal4.classList.remove('active')
     }
   }
+  if (link5){
+    link5.onclick = function(event) {
+      event.preventDefault()
+      elevateModal(modal5)
+      modal5.classList.add('active')
+    }
+  }
+  if (closeBtn5) {
+    closeBtn5.onclick = function() {
+      modal5.classList.remove('active')
+    }
+  }
   if (modal1) {
       modal1.onclick = function(event) {
         elevateModal(modal1)
@@ -99,6 +111,11 @@ document.addEventListener('DOMContentLoaded', function() {
   if (modal4) {
       modal4.onclick = function(event) {
         elevateModal(modal4)
+      }
+  }
+  if (modal5) {
+      modal5.onclick = function(event) {
+        elevateModal(modal5)
       }
   }
 

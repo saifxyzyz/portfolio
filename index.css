@@ -67,7 +67,7 @@
   display: grid;
 }
 .column-2 {
-  display: grid;
+  display: inline;
 }
 .modalcontainer {
   top:  5%;
@@ -96,6 +96,64 @@
   padding-left: 5px;
 }
 .modalcontainer.active{
+  display: block;
+}
+.aita-container {
+  top:  5%;
+  left: 10%;   text-align: left;
+  background-color: silver;
+  height: auto;
+  max-width: 400px;
+  width: 90%;
+  max-height: 90vh;
+  position: fixed;
+  color: black;
+  overflow-y: auto;
+  scrollbar-color: #C0C0C0 #FFFFFF ; /* Firefox styling */
+  scrollbar-width: thick;
+  display: none;
+  cursor: default;
+  border: inset;
+  z-index: 10;
+  text-align: center;
+}
+.aita-container #storyInput {
+  width: 70%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+.aita-container #judgeBtn {
+  background-color: rgb(195, 198, 205); 
+  color: black;
+  font-family: 'MS Sans Serif', Tahoma, sans-serif; 
+  padding: 5px 12px;
+  border: none;
+  cursor: pointer;
+
+  
+  box-shadow: 
+    inset -1px -1px #000000,   
+    inset 1px 1px #ffffff,     
+    -1px -1px #d4d4d4,       
+    1px 1px #808080;
+}
+.aita-container #judgeBtn:active {
+  box-shadow: 
+  inset -1px -1px #ffffff,   
+  inset 1px 1px #000000;     
+}
+.aita-container p {
+  padding-left: 5px;
+}
+.aita-container h2 {
+  padding-left: 5px;
+}
+.aita-container.active{
   display: block;
 }
 .modalcontainer2 {
