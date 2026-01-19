@@ -131,7 +131,6 @@
 .logoimage {
   height: 39px;
   width: auto;
-  margin-right: 15px;
 }
 .foldercontainer {
   display: table-footer-group;
@@ -755,10 +754,11 @@
   }
 
   .window-button {
-    font-size: 9px;
-    padding: 4px 8px;
+    font-size: 6px;
+    padding: 3px 6px;
     margin: 0 1px;
-    height: 24px;
+    height: 22px;
+    width:inherit;
   }
 }
 
