@@ -1,8 +1,50 @@
 .main {
   height: 100vh;
   overflow: hidden;
-  background-color: #018281;
-  font-family:"MS Sans Serif", "Microsoft Sans Serif", "Tahoma", "Geneva", "Verdana", sans-serif;
+  background-color: #008080; /* Classic Windows 95 teal */
+  font-family: "MS Sans Serif", "Microsoft Sans Serif", "Tahoma", "Geneva", "Verdana", sans-serif;
+  font-size: 11px;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.03),
+      rgba(0, 0, 0, 0.03) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+}
+
+/* Windows 95 style buttons and inputs */
+.win95-button {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #000000 #000000 #ffffff;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-family: "MS Sans Serif", sans-serif;
+  cursor: pointer;
+  box-shadow: 
+    inset -1px -1px 0 #000000,
+    inset 1px 1px 0 #ffffff;
+}
+
+.win95-button:active {
+  border-color: #000000 #ffffff #ffffff #000000;
+  box-shadow: 
+    inset -1px -1px 0 #ffffff,
+    inset 1px 1px 0 #000000;
+}
+
+.win95-input {
+  background: #ffffff;
+  border: 2px solid;
+  border-color: #000000 #ffffff #ffffff #000000;
+  padding: 3px 4px;
+  font-size: 11px;
+  font-family: "MS Sans Serif", sans-serif;
+  box-shadow: 
+    inset -1px -1px 0 #808080,
+    inset 1px 1px 0 #ffffff;
 }
 .folder {
   height: 10vh;
@@ -14,12 +56,58 @@
 .taskbar {
   position: absolute;
   bottom: 0;
-  background-color: #c3c3c3;
+  background-color: #c0c0c0;
   height: 40px;
   left: 0;
   right: 0;
   display: flex;
   align-items: center;
+  border-top: 2px solid;
+  border-color: #ffffff #000000 #000000 #ffffff;
+  box-shadow: 
+    inset 0 2px 0 #ffffff,
+    inset 0 -2px 0 #808080;
+}
+
+
+
+.window-buttons {
+  flex: 1;
+  display: flex;
+  gap: 2px;
+  padding-left: 10px;
+  overflow: hidden;
+  align-items: center;
+}
+
+.window-button {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #000000 #000000 #ffffff;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-family: "MS Sans Serif", sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 
+    inset -1px -1px 0 #000000,
+    inset 1px 1px 0 #ffffff;
+  margin: 0 2px;
+  height: 60%;
+  display: flex;
+  align-items: center;
+}
+
+.window-button.active {
+  border-color: #ffffff #808080 #808080 #ffffff;
+  background: #b0b0b0;
+}
+
+.window-button:active {
+  border-color: #000000 #ffffff #ffffff #000000;
+  box-shadow: 
+    inset -1px -1px 0 #ffffff,
+    inset 1px 1px 0 #000000;
 }
 .taskbar .start-button {
     /* Ensure the logo is still positioned correctly */
@@ -41,11 +129,8 @@
     z-index: 1000; /* Ensure it is on top of everything */
 }
 .logoimage {
-  position: absolute;
   height: 39px;
   width: auto;
-  margin-right: 20px;
-  bottom: 0;
 }
 .foldercontainer {
   display: table-footer-group;
@@ -71,8 +156,8 @@
 }
 .modalcontainer {
   top:  5%;
-  left: 10%;   text-align: left;
-  background-color: silver;
+  left: 10%;   
+  background-color: #c0c0c0;
   height: auto;
   max-width: 600px;
   width: 90%;
@@ -84,9 +169,14 @@
   scrollbar-width: thick;
   display: none;
   cursor: default;
-  border: inset;
+  border: 2px solid;
+  border-color: #ffffff #000000 #000000 #ffffff;
   z-index: 10;
-
+  box-shadow: 
+    inset -1px -1px 0 #000000,
+    inset 1px 1px 0 #ffffff,
+    -1px -1px 0 #000000,
+    1px 1px 0 #ffffff;
 }
 
 .modalcontainer p {
@@ -100,8 +190,8 @@
 }
 .aita-container {
   top:  5%;
-  left: 10%;   text-align: left;
-  background-color: silver;
+  left: 10%;   
+  background-color: #c0c0c0;
   height: auto;
   max-width: 400px;
   width: 90%;
@@ -113,40 +203,241 @@
   scrollbar-width: thick;
   display: none;
   cursor: default;
-  border: inset;
+  border: 2px solid;
+  border-color: #ffffff #000000 #000000 #ffffff;
   z-index: 10;
   text-align: center;
+  box-shadow: 
+    inset -1px -1px 0 #000000,
+    inset 1px 1px 0 #ffffff,
+    -1px -1px 0 #000000,
+    1px 1px 0 #ffffff;
 }
+.aitp-content {
+  padding: 15px;
+}
+
+.aitp-header {
+  margin-bottom: 20px;
+  text-align: center;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  padding: 10px;
+  background: #c0c0c0;
+  box-shadow: 
+    inset -1px -1px 0 #000000,
+    inset 1px 1px 0 #ffffff;
+}
+
+.aitp-header h3 {
+  margin: 0 0 5px 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000080;
+}
+
+.aitp-subtitle {
+  margin: 0;
+  font-size: 11px;
+  color: #333;
+}
+
+.aitp-info {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.source-link {
+  color: #000080;
+  text-decoration: underline;
+  font-size: 11px;
+  font-family: "MS Sans Serif", sans-serif;
+}
+
+.source-link:hover {
+  color: #ff0000;
+}
+
+.aitp-form {
+  margin-bottom: 20px;
+}
+
+.aitp-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 11px;
+  color: #000;
+}
+
 .aita-container #storyInput {
-  width: 70%;
-  height: 150px;
-  padding: 12px 20px;
+  width: 100%;
+  height: 120px;
+  padding: 4px 6px;
   box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  resize: none;
+  border: 2px solid;
+  border-color: #000000 #ffffff #ffffff #000000;
+  background-color: #ffffff;
+  resize: vertical;
+  font-family: "MS Sans Serif", sans-serif;
+  font-size: 11px;
+  box-shadow: 
+    inset -1px -1px 0 #808080,
+    inset 1px 1px 0 #ffffff;
+  margin-bottom: 15px;
 }
-.aita-container #judgeBtn {
-  background-color: rgb(195, 198, 205); 
+
+.aitp-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.judge-button, .clear-button {
+  background: #c0c0c0;
   color: black;
   font-family: 'MS Sans Serif', Tahoma, sans-serif; 
-  padding: 5px 12px;
-  border: none;
+  padding: 4px 16px;
+  border: 2px solid;
+  border-color: #ffffff #000000 #000000 #ffffff;
   cursor: pointer;
+  font-size: 11px;
+  font-weight: bold;
+  box-shadow: 
+    inset -1px -1px 0 #000000,
+    inset 1px 1px 0 #ffffff;
+  min-width: 80px;
+}
 
-  
-  box-shadow: 
-    inset -1px -1px #000000,   
-    inset 1px 1px #ffffff,     
-    -1px -1px #d4d4d4,       
-    1px 1px #808080;
+.judge-button:hover, .clear-button:hover {
+  background: #d0d0d0;
 }
-.aita-container #judgeBtn:active {
+
+.judge-button:active, .clear-button:active {
+  border-color: #000000 #ffffff #ffffff #000000;
   box-shadow: 
-  inset -1px -1px #ffffff,   
-  inset 1px 1px #000000;     
+    inset -1px -1px 0 #ffffff,
+    inset 1px 1px 0 #000000;
 }
+
+.judge-button:disabled {
+  background: #a0a0a0;
+  cursor: not-allowed;
+  color: #666;
+}
+
+.result-box {
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  background: #ffffff;
+  box-shadow: 
+    inset -1px -1px 0 #000000,
+    inset 1px 1px 0 #ffffff;
+  margin-top: 15px;
+}
+
+.result-header {
+  background: linear-gradient(to right, #000080, #1084d0);
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  font-size: 11px;
+  border-bottom: 1px solid #000000;
+}
+
+.result-content {
+  padding: 12px;
+}
+
+.verdict-text {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.confidence-text {
+  font-size: 10px;
+  color: #666;
+}
+
+.verdict-text.ytp {
+  color: #cc0000;
+}
+
+.verdict-text.ntp {
+  color: #006600;
+}
+
+.result-box.ytp {
+  border-color: #ff9999 #ffffff #ffffff #ff9999;
+}
+
+.result-box.ntp {
+  border-color: #99ff99 #ffffff #ffffff #99ff99;
+}
+
+/* Judgment Modal Styles */
+.judgment-modal {
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #c0c0c0;
+  width: 350px;
+  height: auto;
+  position: fixed;
+  color: black;
+  display: none;
+  cursor: default;
+  border: 2px solid;
+  border-color: #ffffff #000000 #000000 #ffffff;
+  z-index: 1000;
+  box-shadow: 
+    inset -1px -1px 0 #000000,
+    inset 1px 1px 0 #ffffff,
+    -1px -1px 0 #000000,
+    1px 1px 0 #ffffff;
+}
+
+.judgment-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.verdict-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.verdict-icon.ytp {
+  color: #cc0000;
+}
+
+.verdict-icon.ntp {
+  color: #006600;
+}
+
+.judgment-content .verdict-text {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.judgment-content .confidence-text {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.judgment-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.judgment-modal .win95-button {
+  min-width: 75px;
+  margin: 0 5px;
+}
+
 .aita-container p {
   padding-left: 5px;
 }
@@ -158,19 +449,24 @@
 }
 .modalcontainer2 {
   text-align: left;
-  background-color: silver;
+  background-color: #c0c0c0;
   height: auto;
   width:inherit;
   position: fixed;
   color: black;
   top: 30%;
   right: 52%;
- 
   overflow-y: auto;
   scrollbar-color: #C0C0C0 #FFFFFF ; /* Firefox styling */
   scrollbar-width: thick;
   display: none;
-  border: inset;
+  border: 2px solid;
+  border-color: #ffffff #000000 #000000 #ffffff;
+  box-shadow: 
+    inset -1px -1px 0 #000000,
+    inset 1px 1px 0 #ffffff,
+    -1px -1px 0 #000000,
+    1px 1px 0 #ffffff;
 }
 .modalcontainer2.active {
   display: block;
@@ -181,31 +477,56 @@
 .modalcontainer2 h2 {
   padding: 8px;
 }
+
+.window-title-bar {
+  background: linear-gradient(to right, #000080, #1084d0);
+  color: white;
+  padding: 2px 4px;
+  font-size: 11px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #000000;
+  cursor: move;
+  user-select: none;
+}
+
+.closecontainer {
+  background: linear-gradient(to right, #000080, #1084d0);
+  padding: 2px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #000000;
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+}
+
 .closebutton {
-  position: absolute;
-  top: 4px; /* Position relative to the window container */
-  right: 4px;
   width: 16px;
   height: 14px;
-  background-color: #C0C0C0;
+  background-color: #c0c0c0;
   color: #000000;
   text-align: center;
   line-height: 12px;
-  font-size: 12px;
-  font-family: Arial, sans-serif;
-  padding: 1px;
+  font-size: 10px;
+  font-family: "MS Sans Serif", sans-serif;
+  font-weight: bold;
   cursor: pointer;
-  
-  /* Sunken 3D Effect for the button */
-  border-style: solid;
-  border-width: 1px;
-  border-color: #808080 #FFFFFF #FFFFFF #808080;
+  border: 1px solid;
+  border-color: #ffffff #000000 #000000 #ffffff;
+  box-shadow: 
+    inset -1px -1px 0 #000000,
+    inset 1px 1px 0 #ffffff;
 }
-.closecontainer {
-  padding: 0.5%;
-  background-color: darkblue;
-  display: list-item;
-  
+
+.closebutton:active {
+  border-color: #000000 #ffffff #ffffff #000000;
+  box-shadow: 
+    inset -1px -1px 0 #ffffff,
+    inset 1px 1px 0 #000000;
 }
 .datetime {
   padding: 5px;
@@ -301,11 +622,10 @@
 }
 .projects {
   display:none;
-
   top: 45%;
   right: 22%;
   text-align: left;
-  background-color: silver;
+  background-color: #c0c0c0;
   height: auto;
   width:unset;
   max-height: 90vh;
@@ -314,8 +634,13 @@
   overflow-y: auto;
   scrollbar-color: #C0C0C0 #FFFFFF ; /* Firefox styling */
   scrollbar-width: thick;
-  border: inset;
-
+  border: 2px solid;
+  border-color: #ffffff #000000 #000000 #ffffff;
+  box-shadow: 
+    inset -1px -1px 0 #000000,
+    inset 1px 1px 0 #ffffff,
+    -1px -1px 0 #000000,
+    1px 1px 0 #ffffff;
 }
 .folderitem {
   padding: 2px;
@@ -362,7 +687,7 @@
   right: 25%;
   overflow: clip;
   text-align: left;
-  background-color: silver;
+  background-color: #c0c0c0;
   height: auto;
   width:unset;
   max-height: 90vh;
@@ -371,8 +696,13 @@
   overflow-y: auto;
   scrollbar-color: #C0C0C0 #FFFFFF ; /* Firefox styling */
   scrollbar-width: thick;
-  border: inset;
-
+  border: 2px solid;
+  border-color: #ffffff #000000 #000000 #ffffff;
+  box-shadow: 
+    inset -1px -1px 0 #000000,
+    inset 1px 1px 0 #ffffff,
+    -1px -1px 0 #000000,
+    1px 1px 0 #ffffff;
 }
 .contributions.active {
   display: block;
@@ -421,6 +751,14 @@
   }
   .folderitem {
     height: 9.5vh;
+  }
+
+  .window-button {
+    font-size: 6px;
+    padding: 3px 6px;
+    margin: 0 1px;
+    height: 22px;
+    width:inherit;
   }
 }
 
