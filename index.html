@@ -41,6 +41,7 @@
         </div>
         <div class="modalcontainer" id="modal-1">
           <div class="closecontainer">
+            <span>About Me</span>
             <span class="closebutton" id="closebutton1">X</span>
           </div>
           <h2>Hey There, I am Mohammed Saif</h2>
@@ -63,6 +64,7 @@
         </div>
         <div class="modalcontainer2" id="modal-2">
           <div class="closecontainer">
+            <span>Contact</span>
             <span class="closebutton" id="closebutton2">X</span>
           </div>
           <h2>Lets Connect!</h2>
@@ -75,6 +77,7 @@
         </div>
         <div class="projects" id="modal-3">
           <div class="closecontainer">
+            <span>Projects</span>
             <span class="closebutton" id="closebutton3">X</span>
           </div>
           <div class="projectsmain">
@@ -133,6 +136,7 @@
         </div>
         <div class="contributions" id="modal-4">
           <div class="closecontainer">
+            <span>Contributions</span>
             <span class="closebutton" id="closebutton4">X</span>
           </div>
           <div class="contributionsmain">
@@ -224,31 +228,64 @@
 
       <div class="aita-container" id="modal-5">
           <div class="closecontainer">
+            <span>AITP Judge</span>
             <span class="closebutton" id="closebutton5">X</span>
           </div>
 
-          <h3>Am I The Problem? Let a Machine Learning model judge you</h3>
-          <p><a href="https://github.com/saifxyzyz/AITP" target="_blank">Source Code</a></p>
-          <textarea id="storyInput" placeholder="Type your story here... (e.g. I ate my roomates food because...)"></textarea>
-          
-          <br>
-          <button id="judgeBtn"  onclick="getVerdict()">Get Verdict</button>
+          <div class="aitp-content">
+            <div class="aitp-header">
+              <h3>Am I The Problem?</h3>
+              <p class="aitp-subtitle">Let a Machine Learning model judge your situation</p>
+            </div>
+            
+            <div class="aitp-info">
+              <a href="https://github.com/saifxyzyz/AITP" target="_blank" class="source-link">
+                📁 Source Code
+              </a>
+            </div>
 
-          <div id="resultBox" style="display:none; margin-top: 15px; padding: 10px; border-radius: 5px;">
-              <span id="verdictText"></span>
-              <br>
-              <small id="confidenceText"></small>
+            <div class="aitp-form">
+              <label for="storyInput" class="aitp-label">Your Story:</label>
+              <textarea id="storyInput" placeholder="Type your story here... (e.g. I ate my roommate's food because...)" rows="6"></textarea>
+              
+              <div class="aitp-controls">
+                <button id="judgeBtn" class="judge-button" onclick="getVerdict()">
+                  <span id="judgeBtnText">Get Verdict</span>
+                </button>
+                <button id="clearBtn" class="clear-button" onclick="clearForm()">
+                  Clear
+                </button>
+              </div>
+            </div>
+
+
           </div>
       </div>
 
     </div>
 
 
-
+      <!-- Judgment Result Modal -->
+      <div class="judgment-modal" id="judgmentModal">
+        <div class="closecontainer">
+          <span>Judgment Result</span>
+          <span class="closebutton" id="closeJudgmentModal">X</span>
+        </div>
+        <div class="judgment-content">
+          <div class="verdict-icon" id="verdictIcon"></div>
+          <div class="verdict-text" id="verdictText"></div>
+          <div class="confidence-text" id="confidenceText"></div>
+          <div class="judgment-actions">
+            <button class="win95-button" onclick="closeJudgmentModal()">OK</button>
+          </div>
+        </div>
+      </div>
       
     <div class="taskbar">
       <div class="logo start-button" id="startMenuToggle">
         <img src="src/windows.jpeg" alt="windows" class="logoimage">
+      </div>
+      <div class="window-buttons" id="windowButtons">
       </div>
       <div class="start-menu-popup" id="startMenu" style="display: none;">
         <div class="win95-content">
@@ -330,21 +367,30 @@
     </div>
     <script src="index.js"></script>
     <script>
-        async function getVerdict() {
-            // 1. Setup variables
+        function clearForm() {
             const inputField = document.getElementById("storyInput");
             const resultBox = document.getElementById("resultBox");
-            const verdictText = document.getElementById("verdictText");
-            const confidenceText = document.getElementById("confidenceText");
+            
+            inputField.value = "";
+            resultBox.style.display = "none";
+        }
+
+
+
+        async function getVerdict() {
+            const inputField = document.getElementById("storyInput");
             const btn = document.getElementById("judgeBtn");
+            const btnText = document.getElementById("judgeBtnText");
             
             const story = inputField.value.trim();
 
+            if (story.length < 10) {
+                showJudgmentModal(false, 0, true, "Please write a longer story! (Minimum 10 characters)");
+                return;
+            }
 
-
-            btn.innerText = "Judging...";
+            btnText.innerText = "Judging...";
             btn.disabled = true;
-            resultBox.style.display = "none";
 
             try {
                 const API_URL = "https://saif0z-aita.hf.space/predict"; 
@@ -362,35 +408,16 @@
                 }
 
                 const data = await response.json();
-
-                resultBox.style.display = "block";
-                if (story.length < 10) {
-                    resultBox.style.backgroundColor = "#ffe6e6";
-                    resultBox.style.border = "1px solid #ffcccc";
-                    verdictText.innerHTML = "<strong>Please write a longer story!</strong>";
-                    verdictText.style.color = "#cc0000";
-                    return;
-                }              
-                if (data.yta_score > 0.40) {
-                    resultBox.style.backgroundColor = "#ffe6e6"; // Light red background
-                    resultBox.style.border = "1px solid #ffcccc";
-                    verdictText.innerHTML = "<strong>YTP (You're The Problem)</strong>";
-                    verdictText.style.color = "#cc0000";
-                } else {
-                    resultBox.style.backgroundColor = "#e6fffa"; 
-                    resultBox.style.border = "1px solid #ccffeb";
-                    verdictText.innerHTML = "<strong>NTP (You're Not The Problem)</strong>";
-                    verdictText.style.color = "#006600";
-                }
-
+                const isYTP = data.yta_score > 0.40;
                 const confidence = (data.yta_score > 0.5 ? data.yta_score : (1 - data.yta_score)) * 100;
-                confidenceText.innerText = "Confidence: " + confidence.toFixed(1) + "%";
+                
+                showJudgmentModal(isYTP, confidence);
 
             } catch (error) {
                 console.error("Error:", error);
-                alert("Could not reach the Hugging face space");
+                showJudgmentModal(false, 0, true, "Could not reach the AI service");
             } finally {
-                btn.innerText = "Get Verdict";
+                btnText.innerText = "Get Verdict";
                 btn.disabled = false;
             }
         }
