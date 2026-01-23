@@ -6,16 +6,34 @@
     <title>Saif's Portfolio</title>
     <link href="index.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="src/favicon.png">
-    <script
-      src="https://cdn.databuddy.cc/databuddy.js"
-      data-client-id="19d3c8a8-1d69-4a14-a3c0-806a7ae51008"
-      data-track-hash-changes="true"
-      data-track-attributes="true"
-      data-track-outgoing-links="true"
-      data-track-interactions="true"
-      crossorigin="anonymous"
-      async
-    ></script>
+    <script>
+      (function() {
+        const domains = {
+          "saif.is-a-good.dev": "f79f2369-e18c-47e3-84b0-184c2467b07b",
+          "saifxyzyz.qzz.io": "19d3c8a8-1d69-4a14-a3c0-806a7ae51008",
+          "saifmujeeb.is-a.dev" : "ac047e76-6da7-4b22-9ebc-e9f5a1690b19"
+        };
+
+        const currentDomain = window.location.hostname;
+        const clientId = domains[currentDomain] || "19d3c8a8-1d69-4a14-a3c0-806a7ae51008";
+        const script = document.createElement("script");
+        script.src = "https://cdn.databuddy.cc/databuddy.js";
+        
+        script.setAttribute("data-client-id", clientId);
+
+        script.setAttribute("data-track-hash-changes", "true");
+        script.setAttribute("data-track-attributes", "true");
+        script.setAttribute("data-track-outgoing-links", "true");
+        script.setAttribute("data-track-interactions", "true");
+        script.setAttribute("data-track-scroll-depth", "true");
+        script.setAttribute("data-track-web-vitals", "true");
+        script.setAttribute("data-track-errors", "true");
+
+        script.setAttribute("crossorigin", "anonymous");
+        script.async = true;
+        document.head.appendChild(script);
+      })();
+    </script>
   </head>
   <body class="main">
     <script src="./oneko.js"></script>
