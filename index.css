@@ -13,7 +13,9 @@
       transparent 2px
     );
 }
-
+.stats-image {
+  width: 100%;
+}
 /* Windows 95 style buttons and inputs */
 .win95-button {
   background: #c0c0c0;
@@ -121,7 +123,7 @@
     left: 0;
     
     /* Classic Windows look */
-    width: 40%;
+    width: 70%;
     background-color: #C0C0C0; /* Classic Windows gray */
     border: 3px outset #FFFFFF; /* Create the 3D button effect */
     padding: 5px;
@@ -544,7 +546,6 @@
 .win95-fieldset {
   border: 2px solid;
   border-color: #808080 #ffffff #ffffff #808080;
-  padding: 15px;
   background: #ffffff;
 }
 
