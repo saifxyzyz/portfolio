@@ -204,13 +204,20 @@ document.addEventListener('DOMContentLoaded', function() {
       updateTaskbarButtons()
     }
   }
-  if (link5){
-    link5.onclick = function(event) {
-      event.preventDefault()
+  // Function to open AITP modal (used by both click handler and URL hash)
+  function openAITPModal() {
+    if (modal5) {
       elevateModal(modal5)
       modal5.classList.add('active')
       openWindows.set('modal-5', windowTitles['modal-5'])
       updateTaskbarButtons()
+    }
+  }
+
+  if (link5){
+    link5.onclick = function(event) {
+      event.preventDefault()
+      openAITPModal()
     }
   }
   if (closeBtn5) {
@@ -261,6 +268,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Make judgment modal draggable and elevate it
     makeJudgmentModalDraggable();
     elevateJudgmentModal();
+  }
+
+  // Check URL hash on page load to auto-open AITP modal
+  const hash = window.location.hash.toLowerCase();
+  if (hash === '#aita' || hash === '#aitp') {
+    // Small delay to ensure DOM is fully ready
+    setTimeout(openAITPModal, 100);
   }
 
 })
